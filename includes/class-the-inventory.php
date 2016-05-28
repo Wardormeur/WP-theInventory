@@ -155,7 +155,13 @@ class the_Inventory {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_options_page' );
 		// $this->loader->add_action( 'the_inventory_sync_hook', $plugin_admin, 'sync_products');
-		$this->loader->add_action( 'admin_notices',$plugin_admin,  'admin_noticer' );
+		$this->loader->add_action( 'admin_init', $plugin_admin,  'check_plugin_dep' );
+		$this->loader->add_action( 'pods_admin_ui_custom_product', $plugin_admin, 'product_edit_definition');
+
+		$this->loader->add_action( 'wp_ajax_add_propertyInstance_template', $plugin_admin, 'add_propertyInstance_template_callback');
+		$this->loader->add_action( 'wp_ajax_save_property', $plugin_admin, 'save_property_callback');
+		$this->loader->add_action( 'wp_ajax_delete_property', $plugin_admin, 'delete_property_callback');
+
 	}
 
 	/**
@@ -185,6 +191,7 @@ class the_Inventory {
 		$this->loader->add_filter( 'pods_template_redirect', $plugin_public, 'redirect_custom_template');
 
 		$this->loader->add_filter( "pods_page_templates", $plugin_public, 'apply_filter_add_templates');
+
 	}
 
 	/**

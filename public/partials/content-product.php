@@ -14,7 +14,7 @@ $slug = pods_v( 'last', 'url' );
 $pod = pods( 'product', $slug );
 //get all attrbiutes;
 $attributesSingle = ['name','id', 'famille', 'permalink', 'modified'];
-$attributesMultiple = ['reviews', 'composition', 'images', 'marque', 'topics', 'ext_reviews'];
+$attributesMultiple = ['reviews', 'composition', 'images', 'marque', 'topics', 'ext_reviews', 'properties'];
 $editLink = admin_url() . 'admin.php?page=pods-manage-product&action=edit&id=' . $pod->display('id');
 foreach ($attributesSingle as $attribute){
 	$$attribute = $pod->display($attribute);
@@ -23,7 +23,6 @@ foreach ($attributesMultiple as $attribute){
 	$$attribute = $pod->field($attribute);
 }
 $haveReviews = count($reviews) > 0 && $reviews;
-var_dump($topics);
 $haveTopics =  $topics && count($topics) > 0;
 $base_url = site_url( 'products' );
 //Calculated fields
@@ -36,6 +35,7 @@ if($reviews){
 			}
 		},
 		$reviews);
+		$note = $note/count($reviews);
 }
 ?>
 <?php
@@ -72,8 +72,8 @@ if( count($images) >0 ){ ?>
 			</h1>
 			<div class="row">
 				<h3 class="col-xs-8 no-margin-top"><small>by&nbsp;</small><a href="<?= $base_url ?>?type=product&filter_marque=<?= $marque['id'] ?>"><?= $marque['name'] ?></a> </h3>
-				<?php if($reviews){ ?>
-					<img class="col-xs-4" src="<?= plugin_dir_url(__FILE__).'img/'.$note/count($reviews) ?>.png"/>
+				<?php if($reviews && $note > 0){ ?>
+					<img class="col-xs-4" src="<?= plugin_dir_url(__FILE__).'img/'.$note ?>.png"/>
 				<?php } ?>
 			</div>
 	</header><!-- .entry-header -->
@@ -124,6 +124,18 @@ if( count($images) >0 ){ ?>
 				<a href="<?= $composant['permalink'] ?>"><?= $composant['name'] ?></a>
 			<?php }
 		}?>
+		<?php if ( count($properties) > 0 && $properties) {
+			?>
+			<h4> Properties </h4>
+			<ul class="list-unstyled">
+			<?php foreach($properties as $property){
+				$propertyInstance = pods('propertyinstance', $property['id']);
+				$propertyModel = pods('property', $propertyInstance->field('property'));
+				?>
+				<li><?= $propertyModel->field('name').' '. $propertyInstance->field('value') . ' '.$propertyModel->field('unit') ?></li>
+			<?php }?>
+			</ul>
+		<?php }?>
 		</div>
 		<small class="pull-right">Last update <?= $modified ?></small>
 	</div><!-- .entry-content -->

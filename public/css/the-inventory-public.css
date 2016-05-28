@@ -1,4 +1,10 @@
 /**
  * All of the CSS for your public-facing functionality should be
  * included in this file.
+
+ TODO: extract css for page display that is NOT specific to TN/Bootstrap
  */
+
+ .single-featured.top-image:hover{
+   max-height: 100%;
+ }

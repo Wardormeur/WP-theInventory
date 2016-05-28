@@ -1,11 +1,11 @@
 {
   "meta": {
-    "version": "2.6",
-    "build": 1460901341
+    "version": "2.6.5.2",
+    "build": 1464449996
   },
   "pods": {
-    "257": {
-      "id": 257,
+    "4": {
+      "id": 4,
       "name": "marque",
       "label": "Marques",
       "description": "",
@@ -15,7 +15,7 @@
       "alias": "",
       "fields": {
         "name": {
-          "id": 258,
+          "id": 5,
           "name": "name",
           "label": "Name",
           "description": "",
@@ -33,7 +33,7 @@
           "text_max_length": "255"
         },
         "created": {
-          "id": 259,
+          "id": 6,
           "name": "created",
           "label": "Date Created",
           "description": "",
@@ -55,7 +55,7 @@
           "datetime_html5": "0"
         },
         "modified": {
-          "id": 260,
+          "id": 7,
           "name": "modified",
           "label": "Date Modified",
           "description": "",
@@ -77,7 +77,7 @@
           "datetime_html5": "0"
         },
         "author": {
-          "id": 261,
+          "id": 8,
           "name": "author",
           "label": "Author",
           "description": "",
@@ -107,7 +107,7 @@
           "pick_groupby": ""
         },
         "permalink": {
-          "id": 262,
+          "id": 9,
           "name": "permalink",
           "label": "Permalink",
           "description": "Leave blank to auto-generate from Name",
@@ -122,7 +122,7 @@
           "unique": "0"
         },
         "url": {
-          "id": 263,
+          "id": 10,
           "name": "url",
           "label": "Url",
           "description": "",
@@ -144,10 +144,12 @@
           "hidden": "0",
           "read_only": "0",
           "roles_allowed": ["administrator"],
-          "website_repeatable": "0"
+          "website_repeatable": "0",
+          "website_clickable": "0",
+          "website_new_window": "0"
         },
         "histoire": {
-          "id": 264,
+          "id": 11,
           "name": "histoire",
           "label": "Histoire",
           "description": "",
@@ -195,8 +197,8 @@
         "6": "histoire"
       }
     },
-    "284": {
-      "id": 284,
+    "12": {
+      "id": 12,
       "name": "post",
       "label": "Post",
       "description": "",
@@ -206,7 +208,7 @@
       "alias": "",
       "fields": {
         "note": {
-          "id": 285,
+          "id": 13,
           "name": "note",
           "label": "Note",
           "description": "",
@@ -235,14 +237,14 @@
           "number_repeatable": "0"
         }
       },
-      "show_in_menu": 1,
+      "show_in_menu": "1",
       "pfat_enable": "0",
       "pfat_single": "Product",
       "pfat_append_single": "append",
       "pfat_append_archive": "append"
     },
-    "231": {
-      "id": 231,
+    "14": {
+      "id": 14,
       "name": "product",
       "label": "Products",
       "description": "",
@@ -252,7 +254,7 @@
       "alias": "",
       "fields": {
         "name": {
-          "id": 232,
+          "id": 15,
           "name": "name",
           "label": "Name",
           "description": "",
@@ -270,7 +272,7 @@
           "text_max_length": "255"
         },
         "created": {
-          "id": 233,
+          "id": 16,
           "name": "created",
           "label": "Date Created",
           "description": "",
@@ -292,7 +294,7 @@
           "datetime_html5": "0"
         },
         "modified": {
-          "id": 234,
+          "id": 17,
           "name": "modified",
           "label": "Date Modified",
           "description": "",
@@ -314,7 +316,7 @@
           "datetime_html5": "0"
         },
         "author": {
-          "id": 235,
+          "id": 18,
           "name": "author",
           "label": "Author",
           "description": "",
@@ -334,17 +336,23 @@
           "pick_taggable": "0",
           "pick_limit": "0",
           "pick_allow_html": "0",
+          "pick_user_role": [],
+          "admin_only": "0",
+          "restrict_role": "0",
+          "restrict_capability": "0",
+          "hidden": "1",
+          "read_only": "0",
+          "roles_allowed": ["administrator"],
           "pick_select_text": "",
           "pick_table_id": "",
           "pick_table_index": "",
           "pick_display": "",
-          "pick_user_role": "",
           "pick_where": "",
           "pick_orderby": "",
           "pick_groupby": ""
         },
         "permalink": {
-          "id": 236,
+          "id": 19,
           "name": "permalink",
           "label": "Permalink",
           "description": "Leave blank to auto-generate from Name",
@@ -356,10 +364,16 @@
           "pick_val": "",
           "sister_id": "",
           "required": "0",
-          "unique": "0"
+          "unique": "0",
+          "admin_only": "0",
+          "restrict_role": "0",
+          "restrict_capability": "0",
+          "hidden": "1",
+          "read_only": "0",
+          "roles_allowed": ["administrator"]
         },
         "composition": {
-          "id": 250,
+          "id": 20,
           "name": "composition",
           "label": "Composition",
           "description": "",
@@ -394,7 +408,7 @@
           "pick_groupby": ""
         },
         "reviews": {
-          "id": 251,
+          "id": 21,
           "name": "reviews",
           "label": "Reviews",
           "description": "",
@@ -429,7 +443,7 @@
           "pick_groupby": ""
         },
         "famille": {
-          "id": 255,
+          "id": 22,
           "name": "famille",
           "label": "Famille",
           "description": "",
@@ -464,7 +478,7 @@
           "pick_groupby": ""
         },
         "marque": {
-          "id": 256,
+          "id": 23,
           "name": "marque",
           "label": "Marque",
           "description": "",
@@ -499,7 +513,7 @@
           "pick_groupby": ""
         },
         "images": {
-          "id": 277,
+          "id": 24,
           "name": "images",
           "label": "Images",
           "description": "",
@@ -532,7 +546,7 @@
           "file_allowed_extensions": ""
         },
         "topics": {
-          "id": 305,
+          "id": 25,
           "name": "topics",
           "label": "Topics",
           "description": "",
@@ -567,7 +581,7 @@
           "pick_groupby": ""
         },
         "ext_reviews": {
-          "id": 306,
+          "id": 26,
           "name": "ext_reviews",
           "label": "External reviews",
           "description": "",
@@ -600,13 +614,48 @@
           "pick_where": "",
           "pick_orderby": "",
           "pick_groupby": ""
+        },
+        "properties": {
+          "id": 27,
+          "name": "properties",
+          "label": "Propriétés",
+          "description": "",
+          "help": "",
+          "class": "",
+          "type": "pick",
+          "weight": 12,
+          "pick_object": "pod",
+          "pick_val": "propertyinstance",
+          "sister_id": "331",
+          "required": "0",
+          "unique": "0",
+          "pick_format_type": "multi",
+          "pick_format_single": "dropdown",
+          "pick_format_multi": "autocomplete",
+          "pick_taggable": "1",
+          "pick_limit": "0",
+          "pick_allow_html": "0",
+          "pick_user_role": [],
+          "admin_only": "0",
+          "restrict_role": "0",
+          "restrict_capability": "0",
+          "hidden": "1",
+          "read_only": "0",
+          "roles_allowed": ["administrator"],
+          "pick_display": "@name",
+          "pick_select_text": "",
+          "pick_table_id": "",
+          "pick_table_index": "",
+          "pick_where": "",
+          "pick_orderby": "",
+          "pick_groupby": ""
         }
       },
       "show_in_menu": "1",
       "label_singular": "Product",
       "pod_index": "name",
       "hierarchical": "0",
-      "ui_style": "post_type",
+      "ui_style": "custom",
       "menu_position": "0",
       "ui_actions_enabled": ["add", "edit", "duplicate", "delete"],
       "ui_reorder_field": "menu_order",
@@ -620,9 +669,215 @@
         "6": "reviews"
       }
     },
-    "244": {
-      "id": 244,
-      "name": "proprit",
+    "28": {
+      "id": 28,
+      "name": "propertyinstance",
+      "label": "propertiesInstances",
+      "description": "",
+      "type": "pod",
+      "storage": "table",
+      "object": "",
+      "alias": "",
+      "fields": {
+        "created": {
+          "id": 29,
+          "name": "created",
+          "label": "Date Created",
+          "description": "",
+          "help": "",
+          "class": "",
+          "type": "datetime",
+          "weight": 0,
+          "pick_object": "",
+          "pick_val": "",
+          "sister_id": "",
+          "datetime_format": "ymd_slash",
+          "datetime_time_type": "12",
+          "datetime_time_format": "h_mm_ss_A",
+          "required": "0",
+          "unique": "0",
+          "datetime_repeatable": "0",
+          "datetime_time_format_24": "hh_mm",
+          "datetime_allow_empty": "1",
+          "datetime_html5": "0"
+        },
+        "modified": {
+          "id": 30,
+          "name": "modified",
+          "label": "Date Modified",
+          "description": "",
+          "help": "",
+          "class": "",
+          "type": "datetime",
+          "weight": 1,
+          "pick_object": "",
+          "pick_val": "",
+          "sister_id": "",
+          "datetime_format": "ymd_slash",
+          "datetime_time_type": "12",
+          "datetime_time_format": "h_mm_ss_A",
+          "required": "0",
+          "unique": "0",
+          "datetime_repeatable": "0",
+          "datetime_time_format_24": "hh_mm",
+          "datetime_allow_empty": "1",
+          "datetime_html5": "0"
+        },
+        "author": {
+          "id": 31,
+          "name": "author",
+          "label": "Author",
+          "description": "",
+          "help": "",
+          "class": "",
+          "type": "pick",
+          "weight": 2,
+          "pick_object": "user",
+          "pick_val": "",
+          "sister_id": "",
+          "pick_format_type": "single",
+          "pick_format_single": "autocomplete",
+          "default_value": "{@user.ID}",
+          "required": "0",
+          "unique": "0",
+          "pick_format_multi": "checkbox",
+          "pick_taggable": "0",
+          "pick_limit": "0",
+          "pick_allow_html": "0",
+          "pick_user_role": [],
+          "admin_only": "0",
+          "restrict_role": "0",
+          "restrict_capability": "0",
+          "hidden": "1",
+          "read_only": "0",
+          "roles_allowed": ["administrator"],
+          "pick_select_text": "",
+          "pick_table_id": "",
+          "pick_table_index": "",
+          "pick_display": "",
+          "pick_where": "",
+          "pick_orderby": "",
+          "pick_groupby": ""
+        },
+        "property": {
+          "id": 32,
+          "name": "property",
+          "label": "Property",
+          "description": "",
+          "help": "",
+          "class": "",
+          "type": "pick",
+          "weight": 3,
+          "pick_object": "pod",
+          "pick_val": "property",
+          "sister_id": "",
+          "required": "1",
+          "unique": "0",
+          "pick_format_type": "single",
+          "pick_format_single": "autocomplete",
+          "pick_format_multi": "checkbox",
+          "pick_taggable": "0",
+          "pick_limit": "0",
+          "pick_allow_html": "0",
+          "pick_user_role": [],
+          "admin_only": "0",
+          "restrict_role": "0",
+          "restrict_capability": "0",
+          "hidden": "0",
+          "read_only": "0",
+          "roles_allowed": ["administrator"],
+          "default_value_parameter": "(@name)",
+          "pick_display": "{@name}",
+          "pick_select_text": "",
+          "pick_table_id": "",
+          "pick_table_index": "",
+          "pick_where": "",
+          "pick_orderby": "",
+          "pick_groupby": ""
+        },
+        "value": {
+          "id": 33,
+          "name": "value",
+          "label": "Value",
+          "description": "",
+          "help": "",
+          "class": "",
+          "type": "number",
+          "weight": 4,
+          "pick_object": "",
+          "pick_val": "",
+          "sister_id": "",
+          "required": "1",
+          "unique": "0",
+          "number_format_type": "number",
+          "number_format": "i18n",
+          "number_decimals": "0",
+          "number_step": "1",
+          "number_min": "0",
+          "number_max": "100",
+          "number_max_length": "12",
+          "admin_only": "0",
+          "restrict_role": "0",
+          "restrict_capability": "0",
+          "hidden": "0",
+          "read_only": "0",
+          "roles_allowed": ["administrator"],
+          "number_repeatable": "0"
+        },
+        "product": {
+          "id": 34,
+          "name": "product",
+          "label": "Product",
+          "description": "",
+          "help": "",
+          "class": "",
+          "type": "pick",
+          "weight": 5,
+          "pick_object": "pod",
+          "pick_val": "product",
+          "sister_id": "",
+          "required": "1",
+          "unique": "0",
+          "pick_format_type": "single",
+          "pick_format_single": "autocomplete",
+          "pick_format_multi": "checkbox",
+          "pick_taggable": "0",
+          "pick_limit": "0",
+          "pick_allow_html": "0",
+          "pick_user_role": [],
+          "admin_only": "0",
+          "restrict_role": "0",
+          "restrict_capability": "0",
+          "hidden": "1",
+          "read_only": "0",
+          "roles_allowed": ["administrator"],
+          "pick_select_text": "",
+          "pick_table_id": "",
+          "pick_table_index": "",
+          "pick_display": "",
+          "pick_where": "",
+          "pick_orderby": "",
+          "pick_groupby": ""
+        }
+      },
+      "show_in_menu": "0",
+      "label_singular": "propertyInstance",
+      "pod_index": "id",
+      "hierarchical": "0",
+      "ui_style": "post_type",
+      "menu_position": "0",
+      "ui_actions_enabled": ["add", "edit", "duplicate", "delete"],
+      "ui_reorder_field": "menu_order",
+      "ui_fields_manage": {
+        "1": "modified",
+        "3": "property",
+        "4": "value",
+        "5": "product"
+      }
+    },
+    "35": {
+      "id": 35,
+      "name": "property",
       "label": "Propriété",
       "description": "",
       "type": "pod",
@@ -631,7 +886,7 @@
       "alias": "",
       "fields": {
         "name": {
-          "id": 245,
+          "id": 36,
           "name": "name",
           "label": "Name",
           "description": "",
@@ -646,10 +901,18 @@
           "unique": "0",
           "text_repeatable": "0",
           "text_allowed_html_tags": "strong em a ul ol li b i",
-          "text_max_length": "255"
+          "text_max_length": "255",
+          "text_allow_shortcode": "0",
+          "text_allow_html": "0",
+          "admin_only": "0",
+          "restrict_role": "0",
+          "restrict_capability": "0",
+          "hidden": "0",
+          "read_only": "0",
+          "roles_allowed": ["administrator"]
         },
         "created": {
-          "id": 246,
+          "id": 37,
           "name": "created",
           "label": "Date Created",
           "description": "",
@@ -671,7 +934,7 @@
           "datetime_html5": "0"
         },
         "modified": {
-          "id": 247,
+          "id": 38,
           "name": "modified",
           "label": "Date Modified",
           "description": "",
@@ -693,7 +956,7 @@
           "datetime_html5": "0"
         },
         "author": {
-          "id": 248,
+          "id": 39,
           "name": "author",
           "label": "Author",
           "description": "",
@@ -723,7 +986,7 @@
           "pick_groupby": ""
         },
         "permalink": {
-          "id": 249,
+          "id": 40,
           "name": "permalink",
           "label": "Permalink",
           "description": "Leave blank to auto-generate from Name",
@@ -738,7 +1001,7 @@
           "unique": "0"
         },
         "unit": {
-          "id": 252,
+          "id": 41,
           "name": "unit",
           "label": "Unité",
           "description": "",
@@ -762,37 +1025,11 @@
           "read_only": "0",
           "roles_allowed": ["administrator"],
           "text_repeatable": "0"
-        },
-        "valeur": {
-          "id": 253,
-          "name": "valeur",
-          "label": "Valeur",
-          "description": "",
-          "help": "",
-          "class": "",
-          "type": "text",
-          "weight": 6,
-          "pick_object": "",
-          "pick_val": "",
-          "sister_id": "",
-          "required": "1",
-          "unique": "0",
-          "text_allow_shortcode": "0",
-          "text_allow_html": "0",
-          "text_allowed_html_tags": "strong em a ul ol li b i",
-          "text_max_length": "255",
-          "admin_only": "0",
-          "restrict_role": "0",
-          "restrict_capability": "0",
-          "hidden": "0",
-          "read_only": "0",
-          "roles_allowed": ["administrator"],
-          "text_repeatable": "0"
         }
       },
-      "show_in_menu": "0",
+      "show_in_menu": "1",
       "label_singular": "Propriété",
-      "pod_index": "name",
+      "pod_index": "id",
       "hierarchical": "0",
       "ui_style": "post_type",
       "menu_position": "0",
@@ -804,90 +1041,70 @@
       },
       "ui_filters": {
         "0": "name",
-        "5": "unit",
-        "6": "valeur"
+        "5": "unit"
       }
     }
   },
   "templates": {
     "Product link": {
-      "id": 267,
+      "id": 42,
       "name": "Product link",
       "code": "<a href=\"\/products\/{@permalink}\"> {@name}<\/a>\r\n\r\n",
       "type": "template",
-      "slug": "product",
+      "slug": "product_link",
       "options": {
-        "_edit_lock": "1460901327:175",
+        "_edit_lock": "1460903746:175",
         "_edit_last": "175",
-        "admin_only": "",
-        "restrict_capability": "",
-        "capability_allowed": "",
-        "pod_reference": "a:1:{s:3:\"pod\";s:7:\"product\";}"
+        "pod_reference": "s:30:\"a:1:{s:3:\"pod\";s:7:\"product\";}\";",
+        "type": "template",
+        "slug": "product"
       }
     },
     "Product overview": {
-      "id": 308,
+      "id": 43,
       "name": "Product overview",
       "code": "<div>\r\n\t<a href=\"\/products\/{@permalink}\">{@name}<\/a>\r\n\t<img src=\"{@post_thumbail.url}\"\/>\r\n<\/div>",
       "type": "template",
-      "slug": "product-overview",
+      "slug": "product_overview",
       "options": {
         "_edit_lock": "1460900736:175",
         "_edit_last": "175",
-        "admin_only": "",
-        "restrict_capability": "",
-        "capability_allowed": "",
-        "pod_reference": "a:1:{s:3:\"pod\";s:7:\"product\";}"
+        "pod_reference": "s:30:\"a:1:{s:3:\"pod\";s:7:\"product\";}\";",
+        "type": "template",
+        "slug": "product-overview"
       }
     }
   },
   "pages": {
     "products": {
-      "id": 289,
+      "id": 44,
       "name": "products",
-      "code": "",
-      "type": "page",
-      "slug": "products-2",
-      "options": {
-        "_edit_lock": "1460846495:175",
-        "_edit_last": "175",
-        "page_title": "Products",
-        "precode": "",
-        "page_template": "partials\/listing-product.php",
-        "pod": "0",
-        "pod_slug": "",
-        "admin_only": "",
-        "restrict_role": "",
-        "roles_allowed": "",
-        "restrict_capability": "",
-        "capability_allowed": "",
-        "restrict_redirect": "",
-        "restrict_redirect_login": "",
-        "restrict_redirect_url": ""
-      }
-    },
-    "products\/*": {
-      "id": 265,
-      "name": "products\/*",
       "code": "",
       "type": "page",
       "slug": "products",
       "options": {
+        "_edit_lock": "1460846495:175",
+        "_edit_last": "175",
+        "page_title": "Products",
+        "page_template": "partials\/listing-product.php",
+        "pod": "0",
+        "type": "page",
+        "slug": "products-2"
+      }
+    },
+    "products\/*": {
+      "id": 45,
+      "name": "products\/*",
+      "code": "",
+      "type": "page",
+      "slug": "products-2",
+      "options": {
         "_edit_lock": "1460895749:175",
         "_edit_last": "175",
-        "page_title": "",
-        "precode": "",
         "page_template": "partials\/page-product.php",
         "pod": "product",
-        "pod_slug": "",
-        "admin_only": "",
-        "restrict_role": "",
-        "roles_allowed": "",
-        "restrict_capability": "",
-        "capability_allowed": "",
-        "restrict_redirect": "",
-        "restrict_redirect_login": "",
-        "restrict_redirect_url": ""
+        "type": "page",
+        "slug": "products"
       }
     }
   }

@@ -160,7 +160,6 @@ class the_Inventory_Public {
 		    else {
 			        $file = plugin_dir_path(__FILE__).$template;
 				}
-				var_dump($file);
 				load_template( $file );
 			};
 		}

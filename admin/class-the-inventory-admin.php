@@ -169,15 +169,115 @@ class the_Inventory_Admin {
 
 	}
 
+	/*	Verify the presence of other plugins which are required*/
+	function check_plugin_dep() {
+    if ( is_admin() && current_user_can( 'activate_plugins' ) &&  !is_plugin_active( 'pods/init.php' ) ) {
+        add_action( 'admin_notices', 'admin_noticer' );
+
+        deactivate_plugins( plugin_basename( __FILE__ ) );
+
+        if ( isset( $_GET['activate'] ) ) {
+            unset( $_GET['activate'] );
+        }
+    }
+	}
+
 	/**
 	 * Display a top bar to notify the user of the issues
 	 *
 	 */
 	function admin_noticer() {
 		$class = 'notice notice-error';
-		$message = __( 'Irks! An error has occurred.', 'the-inventory' );
+		$message = __( 'the_Inventory requires Pods to run, please install Pods before theInventory.', 'the-inventory' );
 
 		printf( '<div class="%1$s"><p>%2$s</p></div>', $class, $message );
 	}
+
+	function product_edit_definition( $pod ){
+		pods_ui($pod);
+		if(isset($_GET['id'])){
+			$property = pods('propertyInstance');
+			echo '<form class="property-box postbox">
+			<div class="properties inside">';
+			//display existing properties
+
+			echo '<h3 class="hndle ui-sortable-handle"><span>'.__('Properties', 'the-inventory').'</span></h3>';
+			$properties = $pod->field('properties');
+			if($properties){
+				foreach($properties as $propertyComb) {
+					$propertyInstance = pods('propertyInstance', $propertyComb['id']);
+					$propertyDefinition = pods('property', $propertyInstance->field('property'));
+					$this->get_property_template($propertyDefinition, $propertyInstance);
+					unset($propertyInstance);
+					unset($propertyDefinition);
+					unset($propertyComb);
+				}
+			}
+			//form for new one
+			echo '<div class="inline">';
+			echo $property->form(['fields_only'=> true, 'fields'=>['property', 'value']]);
+			echo '<input type="hidden" name="edit_propertyInstance_id" value=""/>';
+			echo '<button type="submit" class="save-prop button pod-align">Save</button>';
+			echo '</div></div>';
+			echo '<a href="">Add new property definition</a>';
+			// echo '<button type="submit" class="new-prop" >New property</button>';
+			echo '</form>';
+		}
+	}
+
+
+	//	Ref : https://codex.wordpress.org/AJAX_in_Plugins
+	function add_propertyInstance_template_callback () {
+		$property = pods('propertyInstance');
+		echo $property->form();
+		wp_die(); // this is required to terminate immediately and return a proper response
+	}
+
+	//	Ref : https://codex.wordpress.org/AJAX_in_Plugins
+	function save_property_callback () {
+		$product_id = intval($_POST['product_id']);
+		$exists = isset($_POST['propertyInstance_id']);
+		$property_id = intval($_POST['property']);
+		$property_value = intval($_POST['value']);
+		if($exists){
+			$propertyInstance_id = $_POST['propertyInstance_id'];
+			if($propertyInstance_id != ''){
+				$property = pods('propertyInstance', intval($propertyInstance_id));
+			}else{
+				$property = pods('propertyInstance');
+			}
+		} else {
+			$property = pods('propertyInstance');
+		}
+		$property->save(["property" => $property_id, "value" => $property_value, "product_id"=> $product_id]);
+		$product = pods('product', $product_id);
+		$product->add_to('properties', $property->field('id'));
+		$this->get_property_template( pods('property', $property_id) , $property);
+		wp_die();
+	}
+
+	//	Ref : https://codex.wordpress.org/AJAX_in_Plugins
+	function delete_property_callback () {
+		$product_id = intval($_POST['product_id']);
+		$propertyInstance_id = intval($_POST['id']);
+		$property = pods('propertyInstance', $propertyInstance_id);
+		$property->delete();
+		wp_die();
+	}
+
+
+	function get_property_template($propertyDefinition, $propertyInstance){
+		echo '<div class="pods-form-fields">';
+		echo '<input type="text" disabled="disabled" name="name" value="'.$propertyDefinition->display('name').'"/>';
+		echo '<input type="text" disabled="disabled" name="value" value="'.$propertyInstance->display('value').'"/>';
+		echo '<input type="text" disabled="disabled" name="unit" value="'.$propertyDefinition->display('unit').'"/>';
+		echo '<input type="hidden" name="property_id" value="'.$propertyDefinition->field('id').'"/>';
+		echo '<input type="hidden" name="propertyInstance_id" value="'.$propertyInstance->field('id').'"/>';
+		echo '<button type="button" class="edit-prop button" >'.__('Edit', 'the-inventory').'</button>';
+		echo '<button type="button" class="delete-prop button" >'.__('Delete', 'the-inventory').'</button>';
+		echo '</div>';
+	}
+
+
 
 }

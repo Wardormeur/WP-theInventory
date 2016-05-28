@@ -2,3 +2,25 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+.properties ul {
+  margin-left: 15px;
+}
+
+.properties ul li,
+.properties ul li input,
+.properties ul li .pods-form-ui-field-type-pick,
+.properties ul li .pods-form-ui-field-type-number{
+  display: inline-block;
+}
+
+.properties ul li.pods-form-ui-row-type-pick {
+  margin-top : -5px;
+}
+
+.inline, .inline ul {
+  display: inline;
+}
+
+.wp-core-ui .button.pod-align{
+  margin-top: 31px;
+}

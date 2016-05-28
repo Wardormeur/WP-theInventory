@@ -28,5 +28,11 @@
 	 * Although scripts in the WordPress core, Plugins and Themes may be
 	 * practising this, we should strive to set a better example in our own work.
 	 */
+	 jQuery(document).ready(function($) {
+		 $('.images img').on('click', function(event){
+			 event.preventDefault();
+			 $('.single-featured.top-image img').attr('src', $(event.target).parent('a').attr('href'));
+		 });
+	 });
 
 })( jQuery );

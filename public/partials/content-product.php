@@ -130,7 +130,7 @@ if( count($images) >0 ){ ?>
 			<ul class="list-unstyled">
 			<?php foreach($properties as $property){
 				$propertyInstance = pods('propertyinstance', $property['id']);
-				$propertyModel = pods('property', $propertyInstance->field('property'));
+				$propertyModel = pods('property', $propertyInstance->field('property')['id']);
 				?>
 				<li><?= $propertyModel->field('name').' '. $propertyInstance->field('value') . ' '.$propertyModel->field('unit') ?></li>
 			<?php }?>

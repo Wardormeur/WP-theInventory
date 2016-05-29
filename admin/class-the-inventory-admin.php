@@ -206,7 +206,7 @@ class the_Inventory_Admin {
 			if($properties){
 				foreach($properties as $propertyComb) {
 					$propertyInstance = pods('propertyInstance', $propertyComb['id']);
-					$propertyDefinition = pods('property', $propertyInstance->field('property'));
+					$propertyDefinition = pods('property', $propertyInstance->field('property')['id']);
 					$this->get_property_template($propertyDefinition, $propertyInstance);
 					unset($propertyInstance);
 					unset($propertyDefinition);

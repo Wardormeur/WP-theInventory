@@ -52,7 +52,13 @@
 						 .find('input[name="value"]').val(value);
 					 }else{
 						 var fieldPath = '.properties>div.pods-form-fields:last';
-						 $(fieldPath).after(response);
+						 var destination = $(fieldPath);
+						 if(destination.length === 0){
+							 fieldPath = '.properties .pods-form-fields'; 
+							 $(fieldPath).before(response);
+						 }else{
+							 destination.after(response);
+						 }
 						 $(fieldPath).find('.edit-prop').on('click', function(event){
 							 edit_prop_cb(event.target);
 						 });

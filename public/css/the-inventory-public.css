@@ -8,3 +8,10 @@
  .single-featured.top-image:hover{
    max-height: 100%;
  }
+
+ .single-featured.top-image{
+     max-height:200px;
+     width:100%;
+     display:block;
+     overflow:hidden;
+ }

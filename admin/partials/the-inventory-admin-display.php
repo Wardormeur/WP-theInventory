@@ -14,10 +14,13 @@
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
-<h2><?php echo __( 'Options', 'the-inventory' ); ?></h2>
-
-<label><?php echo __( 'API Key', 'the-inventory' ); ?></label>
-<input name="key" type="text"></input>
-
-<button onclick="sync()" name="sync"><?php echo __( 'Sync', 'the-inventory' ); ?></button>
-<span><small>Latest update: </small> </span>
+<div class="wrap">
+	    <h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
+	    <form action="options.php" method="post">
+	        <?php
+	            settings_fields( $this->plugin_name );
+	            do_settings_sections( $this->plugin_name );
+	            submit_button();
+	        ?>
+	    </form>
+	</div>

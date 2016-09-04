@@ -154,6 +154,7 @@ class the_Inventory {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_options_page' );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_the_inventory_settings' );
 		// $this->loader->add_action( 'the_inventory_sync_hook', $plugin_admin, 'sync_products');
 		$this->loader->add_action( 'admin_init', $plugin_admin,  'check_plugin_dep' );
 		$this->loader->add_action( 'pods_admin_ui_custom_product', $plugin_admin, 'product_edit_definition');
@@ -190,7 +191,8 @@ class the_Inventory {
 		$this->loader->add_filter( 'locate_template', $plugin_public, 'view_project_template');
 		$this->loader->add_filter( 'pods_template_redirect', $plugin_public, 'redirect_custom_template');
 
-		$this->loader->add_filter( "pods_page_templates", $plugin_public, 'apply_filter_add_templates');
+		$this->loader->add_filter( 'pods_page_templates', $plugin_public, 'apply_filter_add_templates');
+		$this->loader->add_filter( 'pods_pods_filters', $plugin_public, 'restrict_filters_categories' );
 
 	}
 

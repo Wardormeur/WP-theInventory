@@ -194,7 +194,16 @@ class the_Inventory_Public {
 					return $template ;
 
 	}
-
-
+	public function restrict_filters_categories ($html) {
+		$selected_cat = get_option('the_inventory_settings_categories');
+		$html_cats = [];
+		preg_match_all ('/option value="([0-9]+)"/' , $html, $html_cats );
+		foreach ($html_cats[1] as $cat_id) {
+			if(!in_array($cat_id, $selected_cat)){
+				$html = str_replace('option value="'.$cat_id.'"', 'option value="'.$cat_id.'" style="display:none"', $html);
+			}
+		}
+		return $html;
+	}
 
 }

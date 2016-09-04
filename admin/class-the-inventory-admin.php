@@ -50,6 +50,9 @@ class the_Inventory_Admin {
 	 */
 	 private $url;
 
+	 private $option_name = 'the_inventory_settings';
+
+
 	/**
 	 * Initialize the class and set its properties.
 	 *
@@ -278,6 +281,44 @@ class the_Inventory_Admin {
 		echo '</div>';
 	}
 
+	function register_the_inventory_settings() {
+
+		//register our settings
+		add_settings_section(
+			$this->option_name . '_section',			// ID used to identify this section and with which to register options
+			__( 'Visible categories', 'the-inventory' ),		// Title to be displayed on the administration page
+			array($this, $this->option_name . '_section_callback'),	// Callback used to render the description of the section
+			$this->plugin_name		// Page on which to add this section of options
+		);
+
+		add_settings_field(
+			$this->option_name . '_categories',						// ID used to identify the field throughout the theme
+			__( 'Header', 'the-inventory' ),							// The label to the left of the option interface element
+			array($this, $this->option_name . '_categories_callback'),	// The name of the function responsible for rendering the option interface
+			$this->plugin_name,	// The page on which this option will be displayed
+			$this->option_name . '_section'			// The name of the section to which this field belongs
+		);
+
+		register_setting( $this->plugin_name, $this->option_name . '_categories' );
+	}
+
+	function the_inventory_settings_section_callback ( ) {
+		echo _('Choose visible categories','the-inventory');
+	}
+
+	function the_inventory_settings_categories_callback ( ) {
+		$selected_cat = get_option( $this->option_name . '_categories' );
+		$html = wp_dropdown_categories( array( 'echo' => 0, 'hierarchical' => 1 ,
+		 'hide_empty' => 0, 'id' => $this->option_name . '_categories',
+		  'name' => $this->option_name . '_categories[]') );
+		$html = str_replace( 'id=', 'multiple="multiple" id=', $html );
+		// wp_dropdown_categories isn't supposed to support multi select, so no support for multiple selected values
+		foreach ($selected_cat as $cat) {
+			var_dump($cat);
+			$html = str_replace( 'value="' . $cat, ' selected="selected" value="' . $cat, $html);
+		}
+		echo $html;
+	}
 
 
 }

@@ -23,7 +23,7 @@ foreach ($attributesMultiple as $attribute){
 	$$attribute = $pod->field($attribute);
 }
 $haveReviews = count($reviews) > 0 && $reviews;
-$haveTopics =  $topics && count($topics) > 0;
+$haveExtReviews =  $ext_reviews && count($ext_reviews) > 0;
 $base_url = site_url( 'products' );
 //Calculated fields
 $note = 0;
@@ -84,7 +84,7 @@ if( count($images) >0 ){ ?>
 	</ul>
 	<div class="tab-content entry-content row">
 		<div role="tabpanel" class="reviews tab-pane active fade in" id="reviews">
-		<?php if ( $haveTopics || $haveReviews) {
+		<?php if ( $haveExtReviews || $haveReviews) {
 			?>
 			<ul class="list-unstyled col-xs-10">
 			<?php
@@ -100,12 +100,12 @@ if( count($images) >0 ){ ?>
 			</li>
 			<?php }
 			}
-			if ($haveTopics) {
-				foreach($topics as $topic){
+			if ($haveExtReviews) {
+				foreach($ext_reviews as $ext_review){
 			?>
 			<li class="row">
-				<a href="<?= $topic ?>">
-					<span class="h4 col-xs-10">Sur le forum : <?= $anem ?> <small></small></span>
+				<a href="<?= $ext_review['url'] ?>">
+					<span class="h5 col-xs-10"><?= $ext_review['url'] ?></span>
 				 </a>
 			</li>
 			<?php

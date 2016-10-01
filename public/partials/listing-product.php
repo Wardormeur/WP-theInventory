@@ -20,7 +20,7 @@ get_header(); ?>
       </div>
     <?php
       // Get the items, search is automatically handled
-      $params = array( 'limit' => 15 );
+      $params = array( 'limit' => 10 );
       $pods->find($params);
       //Listing
       if ( $pods->total() > 0 ) {
@@ -40,7 +40,7 @@ get_header(); ?>
       <?php
         }
       }
-      $pods->pagination();
+      echo $pods->pagination();
     ?>
 
     </main><!-- #main -->

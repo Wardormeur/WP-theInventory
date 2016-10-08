@@ -314,7 +314,6 @@ class the_Inventory_Admin {
 		$html = str_replace( 'id=', 'multiple="multiple" id=', $html );
 		// wp_dropdown_categories isn't supposed to support multi select, so no support for multiple selected values
 		foreach ($selected_cat as $cat) {
-			var_dump($cat);
 			$html = str_replace( 'value="' . $cat, ' selected="selected" value="' . $cat, $html);
 		}
 		echo $html;

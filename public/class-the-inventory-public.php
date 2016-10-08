@@ -196,14 +196,26 @@ class the_Inventory_Public {
 	}
 	public function restrict_filters_categories ($html) {
 		$selected_cat = get_option('the_inventory_settings_categories');
-		$html_cats = [];
-		preg_match_all ('/option value="([0-9]+)"/' , $html, $html_cats );
-		foreach ($html_cats[1] as $cat_id) {
-			if(!in_array($cat_id, $selected_cat)){
-				$html = str_replace('option value="'.$cat_id.'"', 'option value="'.$cat_id.'" style="display:none"', $html);
+		$cat_names = [];
+		if ($selected_cat) {
+			foreach ($selected_cat as $cat) {
+				$cat_names[] = get_cat_name($cat);
 			}
 		}
-		return $html;
+
+		$html_cats = [];
+		$dom = new DOMDocument();
+		$dom->loadHTML($html);
+		$select = $dom->getElementById('pods-form-ui-filter-famille');
+		for($i = $select->childNodes->length; $i > 0 ; $i--) {
+			$option = $select->childNodes->item($i);
+			if ($i !== 0 && $option) {
+				if (!in_array($option->nodeValue, $cat_names)) {
+					$select->removeChild($option);
+				}
+			}
+		}
+		return $dom->saveHTML();
 	}
 
 }

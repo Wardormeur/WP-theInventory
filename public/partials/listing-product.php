@@ -6,7 +6,7 @@ get_header(); ?>
 
   <div id="primary" class="content-area col-xs-12">
 
-    <main id="main" class="site-main" role="main">
+    <main id="main" class="site-main row" role="main">
       <?php
       $pods = pods( 'product' );
       ?>
@@ -20,7 +20,7 @@ get_header(); ?>
       </div>
     <?php
       // Get the items, search is automatically handled
-      $params = array( 'limit' => 10 );
+      $params = array( 'limit' => 3 );
       $pods->find($params);
       //Listing
       if ( $pods->total() > 0 ) {
@@ -40,11 +40,13 @@ get_header(); ?>
       <?php
         }
       }
-      echo $pods->pagination();
-    ?>
+      ?>
+
 
     </main><!-- #main -->
-
+    <div class="row">
+      <?= $pods->pagination(); ?>
+    </div>
   </div><!-- #primary -->
 
 <?php get_footer(); ?>
